@@ -1,6 +1,16 @@
 
 import apiCall from '../api';
 
+export const filterAndSortData = (data, citiToShow) => {
+  const fileterData = data.filter((citi) => citi.name !== citiToShow);
+
+  const sortFileteredData = fileterData.sort((citiPrev, citiNext) =>
+    citiPrev.name.localeCompare(citiNext.name)
+  );
+
+  return sortFileteredData;
+};
+
 function Selector ({
   citiToShow,
   currentPosition,
@@ -39,22 +49,12 @@ function Selector ({
     setShowLoading(false);
   };
 
-  const filterAndSortData = (data) => {
-    const fileterData = data.filter((citi) => citi.name !== citiToShow);
-
-    const sortFileteredData = fileterData.sort((citiPrev, citiNext) =>
-      citiPrev.name.localeCompare(citiNext.name)
-    );
-
-    return sortFileteredData;
-  };
-
   return (
     <select onChange={(e) => handleCityChange(e.target.value)}>
 
       <option value="">{citiToShow}</option>
 
-        {filterAndSortData(CITIES).map((citi) => (
+        {filterAndSortData(CITIES, citiToShow).map((citi) => (
 
           <option key={citi.id} value={citi.id}>
             {citi.name}{' '}
