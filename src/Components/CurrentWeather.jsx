@@ -1,8 +1,8 @@
 
-function CurrentWeather ({ currentWeather }) {
+function CurrentWeather ({ citiName, currentWeather }) {
   return (
     <div>
-      <h1>Tiempo actual en</h1>
+      <h1>Tiempo actual en {citiName}</h1>
 
       <section>
       {Object.keys(currentWeather).map(e => (

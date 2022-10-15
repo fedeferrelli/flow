@@ -48,7 +48,7 @@ function App () {
             setData={setData}
             setShowLoading={setShowLoading}
           />
-      <CurrentWeather currentWeather={data[0]}/>
+      <CurrentWeather citiName = {citiToShow} currentWeather={data[0]}/>
       <Forecast forecast={data.slice(1)}/>
       </>
         }
