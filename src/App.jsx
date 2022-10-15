@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import apiCall from './api';
 import CurrentWeather from './Components/CurrentWeather';
 import Forecast from './Components/Forecast';
+import Selector from './Components/Selector';
 
 function App () {
   const [data, setData] = useState();
   const [currentPosition, setCurrentPosition] = useState();
+  const [citiToShow, setCitiToShow] = useState('Tu ubicación');
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -35,6 +37,12 @@ function App () {
       <p>Fede Mazza</p>
       {typeof (data) !== 'undefined'
         ? <>
+        <Selector
+            citiToShow={citiToShow}
+            currentPosition={currentPosition}
+            setCitiToShow={setCitiToShow}
+            setData={setData}
+          />
       <CurrentWeather currentWeather={data[0]}/>
       <Forecast forecast={data.slice(1)}/>
       </>

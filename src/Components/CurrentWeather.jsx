@@ -2,7 +2,7 @@
 function CurrentWeather ({ currentWeather }) {
   return (
     <div>
-      <h1>Tiempo actual</h1>
+      <h1>Tiempo actual en</h1>
 
       <section>
       {Object.keys(currentWeather).map(e => (
