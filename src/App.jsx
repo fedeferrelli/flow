@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import apiCall from './api';
+import CurrentWeather from './Components/CurrentWeather';
 
 function App () {
   const [data, setData] = useState();
@@ -31,7 +32,8 @@ function App () {
     <div>
       <h1>Flow Challenge</h1>
       <p>Fede Mazza</p>
-      {typeof (data) !== 'undefined' && data[0].dt}
+      {typeof (data) !== 'undefined' ? <CurrentWeather currentWeather={data[0]}/> : 'Cargando data'}
+
     </div>
   );
 }
