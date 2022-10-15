@@ -1,11 +1,10 @@
+export const dayStringToShow = (index, day) => {
+  if (index === 0) return 'mañana';
+  else if (index === 1) return 'pasado mañana';
+  else return day;
+};
 
 function Forecast ({ forecast }) {
-  const dayStringToShow = (index, day) => {
-    if (index === 0) return 'mañana';
-    else if (index === 1) return 'pasado mañana';
-    else return day;
-  };
-
   return (
     <div>
       {forecast.map((day, i) => (

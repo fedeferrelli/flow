@@ -18,7 +18,7 @@ const apiCall = {
         hour: 'numeric',
         minute: 'numeric'
       }),
-      temp: Math.round(response.current.temp * 10) / 10,
+      temp: `${Math.round(response.current.temp * 10) / 10} ºC`,
       tempMax: Math.round(response.daily[0].temp.max * 10) / 10,
       tempMin: Math.round(response.daily[0].temp.min * 10) / 10,
       weather: response.current.weather[0].description
