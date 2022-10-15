@@ -28,6 +28,7 @@ function Selector ({
   ];
 
   const handleCityChange = async (citiId) => {
+    setShowLoading(true);
     const citi = CITIES.find((citi) => citi.id === citiId);
 
     setCitiToShow(citi.name);
@@ -35,6 +36,7 @@ function Selector ({
     const dataApi = await apiCall.fetch(citi);
 
     setData(dataApi);
+    setShowLoading(false);
   };
 
   const filterAndSortData = (data) => {

@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 
 import apiCall from './api';
+import Selector from './Components/Selector';
 import CurrentWeather from './Components/CurrentWeather';
 import Forecast from './Components/Forecast';
-import Selector from './Components/Selector';
+import Loading from './Components/Loading';
 
 function App () {
   const [data, setData] = useState();
   const [currentPosition, setCurrentPosition] = useState();
   const [citiToShow, setCitiToShow] = useState('Tu ubicación');
+  const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -26,6 +28,7 @@ function App () {
       const dataApi = await apiCall.fetch(currentPosition);
 
       setData(dataApi);
+      setShowLoading(false);
     };
 
     typeof (currentPosition) !== 'undefined' && getData();
@@ -35,18 +38,20 @@ function App () {
     <div>
       <h1>Flow Challenge</h1>
       <p>Fede Mazza</p>
-      {typeof (data) !== 'undefined'
-        ? <>
+      {showLoading
+        ? <Loading citiToShow={citiToShow}/>
+        : <>
         <Selector
             citiToShow={citiToShow}
             currentPosition={currentPosition}
             setCitiToShow={setCitiToShow}
             setData={setData}
+            setShowLoading={setShowLoading}
           />
       <CurrentWeather currentWeather={data[0]}/>
       <Forecast forecast={data.slice(1)}/>
       </>
-        : 'Cargando data'}
+        }
 
     </div>
   );
