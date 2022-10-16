@@ -2,6 +2,10 @@ const capitalize = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
+const getTemperature = (tempLong) => {
+  return Math.round(tempLong * 10) / 10;
+};
+
 const apiCall = {
   fetch: async (city) => {
     const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
@@ -22,9 +26,9 @@ const apiCall = {
         hour: 'numeric',
         minute: 'numeric'
       }),
-      temp: `${Math.round(response.current.temp * 10) / 10} ºC`,
-      tempMax: Math.round(response.daily[0].temp.max * 10) / 10,
-      tempMin: Math.round(response.daily[0].temp.min * 10) / 10,
+      temp: getTemperature(response.current.temp),
+      tempMax: getTemperature(response.daily[0].temp.max),
+      tempMin: getTemperature(response.daily[0].temp.min),
       weather: capitalize(response.current.weather[0].description)
     });
 
@@ -35,9 +39,9 @@ const apiCall = {
           month: 'long',
           day: 'numeric'
         }),
-        temp: Math.round(e.temp.day * 10) / 10,
-        tempMax: e.temp.max,
-        tempMin: e.temp.min,
+        temp: getTemperature(e.temp.day),
+        tempMax: getTemperature(e.temp.max),
+        tempMin: getTemperature(e.temp.min),
         weather: capitalize(e.weather[0].description)
       });
     });
