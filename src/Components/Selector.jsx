@@ -50,7 +50,8 @@ function Selector ({
   };
 
   return (
-    <select onChange={(e) => handleCityChange(e.target.value)}>
+    <div className="w-full flex">
+    <select className="w-11/12 px-2 sm:max-w-lg py-2 italic border shadow-lg border-gray-200 rounded-lg m-auto text-gray-800" onChange={(e) => handleCityChange(e.target.value)}>
 
       <option value="">{citiToShow}</option>
 
@@ -63,6 +64,7 @@ function Selector ({
         ))}
 
     </select>
+    </div>
   );
 }
 

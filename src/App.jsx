@@ -35,7 +35,8 @@ function App () {
   }, [currentPosition]);
 
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen">
+      <div className="max-w-[1268px] m-auto">
       <h1>Flow Challenge</h1>
       <p>Fede Mazza</p>
       {showLoading
@@ -52,7 +53,7 @@ function App () {
       <Forecast forecast={data.slice(1)}/>
       </>
         }
-
+</div>
     </div>
   );
 }
