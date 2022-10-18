@@ -36,7 +36,7 @@ const apiCall = {
       dataWeather.push({
         dt: new Date(e.dt * 1000).toLocaleDateString('ES-ar', {
           weekday: 'long',
-          month: 'long',
+          month: 'short',
           day: 'numeric'
         }),
         temp: getTemperature(e.temp.day),

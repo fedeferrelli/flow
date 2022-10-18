@@ -1,5 +1,5 @@
 import { expect, test, describe } from 'vitest';
-import { dayStringToShow } from './Forecast';
+import { dayStringToShow } from './ForecastDayByDay';
 
 
 describe('Functions inside Forecast Component. dayStringToShow should return a string indicating the day according to the index', ()=>{
