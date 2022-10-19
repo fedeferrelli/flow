@@ -35,7 +35,7 @@ function App () {
   }, [currentPosition]);
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-100 bg-main min-h-screen font-light">
       <div className="max-w-[1268px] m-auto">
       <h1>Flow Challenge</h1>
       <p>Fede Mazza</p>

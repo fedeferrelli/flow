@@ -9,7 +9,7 @@ function ForecastDayByDay ({ dayData, index }) {
 
   return (
 
-    <section className="w-full mt-4 sm:min-w-[220px] m-auto border border-gray-300/75 rounded-lg bg-gray-300/25 text-center text-gray-800 py-4 shadow-lg flex flex-col gap-4 ">
+    <section className="w-full mt-4 sm:min-w-[220px] m-auto border border-gray-800/25 rounded-lg bg-secondary text-center text-text_sec py-4 shadow-lg flex flex-col gap-4 ">
       <div>
           {dayStringToShow(index, time)}
       </div>
