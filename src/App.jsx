@@ -5,6 +5,7 @@ import Selector from './Components/Selector';
 import CurrentWeather from './Components/CurrentWeather';
 import Forecast from './Components/Forecast';
 import Loading from './Components/Loading';
+import PersonalInformation from './Components/PersonalInformation';
 
 function App () {
   const [data, setData] = useState();
@@ -35,10 +36,10 @@ function App () {
   }, [currentPosition]);
 
   return (
-    <div className="bg-gray-100 bg-main min-h-screen font-light">
+    <div className="bg-main min-h-screen font-light">
+      <PersonalInformation/>
       <div className="max-w-[1268px] m-auto">
-      <h1>Flow Challenge</h1>
-      <p>Fede Mazza</p>
+
       {showLoading
         ? <Loading citiToShow={citiToShow}/>
         : <>
