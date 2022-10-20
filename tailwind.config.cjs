@@ -5,10 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        main: '#FDFDBD',
-        secondary: '#B1AFFF',
-        text_main: '#000000',
-        text_sec: '#FFFFDD'
+        main: 'rgb(15 23 42)',
+        secondary: 'rgb(30 41 59)',
+        text_main: 'rgb(255, 255, 255)',
+        shadow: 'rgb(30 41 59)'
       }
     }
   },

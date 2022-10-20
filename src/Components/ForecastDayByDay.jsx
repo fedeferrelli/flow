@@ -9,12 +9,12 @@ function ForecastDayByDay ({ dayData, index }) {
 
   return (
 
-    <section className="w-full mt-4 sm:min-w-[220px] m-auto border border-gray-800/25 rounded-lg bg-secondary text-center text-text_sec py-4 shadow-lg flex flex-col gap-4 ">
+    <section className="w-full sm:min-w-[220px] m-auto border border-gray-800/25 rounded-lg bg-secondary text-center text-text_main py-4 flex flex-col gap-4">
       <div>
           {dayStringToShow(index, time)}
       </div>
 
-      <div className="text-4xl">{currentTemp}º </div>
+      <div className="text-4xl font-normal">{currentTemp}º </div>
 
       <section className="text-xl">
          <div >{tempMax}º - {tempMin}º</div>
